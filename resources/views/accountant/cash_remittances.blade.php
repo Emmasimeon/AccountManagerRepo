@@ -110,7 +110,7 @@
                                             @if (count($Last_Trx) > 0)
                                             <tr>
                                                 <th>#</th>
-                                                <th>DATE:</th>
+                                                <th>TRANSACTION DATE:</th>
                                                 <th>TRANSACTION BY:</th>
                                                 <th>AMOUNT (₦):</th>
                                                 <th>RECEIVED BY:</th>
@@ -123,7 +123,7 @@
                                                         @foreach ($Last_Trx as $Trx )
                                                             <tr>
                                                                 <td>{{$number++}}</td>
-                                                                <td>{{date('d-m-Y', strtotime($Trx->created_at))}}</td>
+                                                                <td>{{date('d-m-Y', strtotime($Trx->date))}}</td>
                                                                 <td><b>{{$Trx->user . ' ('.$Trx->office.')'}}</b></td>
                                                                 <td>{{number_format($Trx->amount ,2,".",",")}}</td>
                                                                 <td>{{$Trx->receiver }}</td>
