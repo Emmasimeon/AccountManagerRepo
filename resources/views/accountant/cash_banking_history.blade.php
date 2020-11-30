@@ -28,7 +28,8 @@
                                              @if (count($Report) > 0)
                                             <tr>
                                                 <th>#</th>
-                                                <th class="text-center">DATE:</th>
+                                                <th class="text-center">TRANSACTION DATE:</th>
+                                                <th class="text-center">RECORDED DATE:</th>
                                                 <th class="text-center">TRANSACTION BY:</th>
                                                 <th class="text-center">BANK:</th>
                                                 <th class="text-center">AMOUNT(₦):</th>
@@ -41,6 +42,7 @@
                                                 @foreach ($Report as $Trx)
                                                     <tr>
                                                         <td>{{$number++}}</td>
+                                                        <td class="text-center">{{date('d-m-Y', strtotime($Trx->date))}}</td>
                                                         <td class="text-center">{{date('d-m-Y', strtotime($Trx->created_at))}}</td>
                                                         <td><b>{{$Trx->user . ' ('.$Trx->office.')'}}</b></td>
                                                         <td>{{$Trx->bank}}</td>
