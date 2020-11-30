@@ -7,7 +7,7 @@
 
                                 <div class="app-footer-right">
                                   <p class="text-center">
-                                    Web Services by <a href="#" target="_blank"> 1PC Security</a>
+                                    Web Services by <a href="#" target="_blank"> 1PC Security</a> ||  Build 1.1.0
                                   </p>
                                 </div>
                             </div>
