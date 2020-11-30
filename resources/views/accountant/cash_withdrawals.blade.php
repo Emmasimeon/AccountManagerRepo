@@ -24,7 +24,7 @@
 
                         <form method="POST" action="/Cash/Withdrawal/Process" class="">
                         {{ csrf_field()}}
-                        <input type="hidden" name="date" value="{{date("Y-m-d")}}" hidden>
+                        {{-- <input type="hidden" name="date" value="{{date("Y-m-d")}}" hidden> --}}
 
                         <div class="row">
                             <div class="col-4">
@@ -76,6 +76,12 @@
 
                                     <div class="form-row">
                                         <div class="col-md-3">
+                                            <div class="position-relative form-group"><label for="date" class="">TRANSACTION DATE:</label>
+                                                <input type="date" name="date" placeholder="date" class="form-control" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
                                             <div class="position-relative form-group"><label for="Amount" class="">AMOUNT (₦):</label>
                                                 <input type="number" name="Amount" placeholder="Amount" class="form-control" required>
                                             </div>
@@ -87,7 +93,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="position-relative form-group">
                                             <label for="comment" class="">COMMENT:</label>
                                             <textarea name="comment" id="comment" placeholder="Enter comment here" type="text" class="form-control"></textarea></div>    
@@ -109,7 +115,8 @@
                                             @if (count($Last_Trx) > 0)
                                             <tr>
                                                 <th>#</th>
-                                                <th>DATE:</th>
+                                                <th>TRANSACTION DATE:</th>
+                                                <th>DATE RECORDED:</th>
                                                 <th>TRANSACTION BY:</th>
                                                 <th>AUTHORIZED BY:</th>
                                                 <th>AMOUNT (₦):</th>
@@ -123,6 +130,7 @@
                                                         @foreach ($Last_Trx as $Trx )
                                                             <tr>
                                                                 <td>{{$number++}}</td>
+                                                                <td>{{date('d-m-Y', strtotime($Trx->date))}}</td>
                                                                 <td>{{date('d-m-Y', strtotime($Trx->created_at))}}</td>
                                                                 <td><b>{{$Trx->user . ' ('.$Trx->office.')'}}</b></td>
                                                                 <td>{{$Trx->authority}}</td>

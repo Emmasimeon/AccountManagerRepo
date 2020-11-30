@@ -111,6 +111,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>TRANSACTION DATE:</th>
+                                                <th>DATE RECORDED:</th>
                                                 <th>TRANSACTION BY:</th>
                                                 <th>AMOUNT (₦):</th>
                                                 <th>RECEIVED BY:</th>
@@ -124,6 +125,7 @@
                                                             <tr>
                                                                 <td>{{$number++}}</td>
                                                                 <td>{{date('d-m-Y', strtotime($Trx->date))}}</td>
+                                                                <td>{{date('d-m-Y', strtotime($Trx->created_at))}}</td>
                                                                 <td><b>{{$Trx->user . ' ('.$Trx->office.')'}}</b></td>
                                                                 <td>{{number_format($Trx->amount ,2,".",",")}}</td>
                                                                 <td>{{$Trx->receiver }}</td>
